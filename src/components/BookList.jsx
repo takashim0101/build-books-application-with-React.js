@@ -4,7 +4,7 @@ import axios from "axios";
 import { useAppContext } from './context/appContext.jsx';
 
 const BookList = () => {
-    const [books, setBooks] = useState([]);
+    const [books, setBooks] = useState([]); // Initial value is an empty array
     const context = useAppContext();
 
     if (!context) {
@@ -14,6 +14,7 @@ const BookList = () => {
     const { favorites, addToFavorites, removeFavorites } = context;
 
     console.log('Favorites are', favorites);
+    console.log('API_URL:', API_URL); // Check the URL here
 
     // Function to check if a book is in favorites
     const favoritesChecker = (id) => {
@@ -21,14 +22,21 @@ const BookList = () => {
     };
 
     useEffect(() => {
+        console.log('API_URL in useEffect:', API_URL);
         axios.get(API_URL)
             .then(res => {
-                setBooks(res.data);
+                console.log('API response:', res.data); // Check the response
+                const data = Array.isArray(res.data) ? res.data : []; // If not an array, set to empty array
+                console.log('Books set:', data); // Check the data being set
+                setBooks(data);
             })
             .catch(err => {
-                console.error(err);
+                console.error('Error fetching data:', err.message);
+                setBooks([]); // Set to empty array on error
             });
     }, []);
+
+    console.log('Books:', books); // Display the value of books
 
     return (
         <div className="book-list">
