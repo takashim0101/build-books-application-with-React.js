@@ -7,6 +7,7 @@ const Navbar = () => {
         <div><h1>React Books App</h1></div>
         <div>
             <Link to="/">Home</Link>
+            
             <Link to="/favorites">Your Favorites</Link>
         </div>
     </div>

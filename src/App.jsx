@@ -7,8 +7,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Favorites from './components/Favorites';
 import './App.css';
-import Main from "./components/Main";
-
+import ImageModal from './components/ImageModal'; // ImageModalのインポート
 
 function App() {
   return (

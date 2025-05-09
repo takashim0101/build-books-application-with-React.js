@@ -44,10 +44,11 @@
   box-sizing: border-box;
 }
 
-img {
-  width: 300px; /* Restored to original size */
-  height: 300px; /* Restored to original size */
+.book img {
+  width: 310px; /* Restored to original size */
+  height: 500px; /* Restored to original size */
   transition: all 0.3s; /* Added transition */
+  object-fit: cover; /* This will crop the image to fill the dimensions without stretching */
 }
 
 img:hover {
@@ -92,4 +93,13 @@ button {
     padding: 2%; /* Changed to % */
   }
 }
+
+
+
+
+
+
+
+
+
 

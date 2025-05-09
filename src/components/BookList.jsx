@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import { API_URL } from "../API.js";
 import axios from "axios";
 import { useAppContext } from "./context/appContext.jsx";
-// import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import ImageModal from "./ImageModal"; // Import the ImageModal component
 
 const BookList = () => {
   const [books, setBooks] = useState([]); // Initial value is an empty array
   const [searchTerm, setSearchTerm] = useState(""); // State for search term
   const context = useAppContext();
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
+  const [selectedImage, setSelectedImage] = useState(""); // State for selected image
 
   if (!context) {
     return <div>Error: Context is not available</div>;
@@ -17,22 +19,11 @@ const BookList = () => {
 
   const { favorites, addToFavorites, removeFavorites } = context;
 
-  console.log("Favorites are", favorites);
-  console.log("API_URL:", API_URL); // Check the URL here
-
-  // Function to check if a book is in favorites
-  const favoritesChecker = (id) => {
-    return favorites.some((book) => book.id === id);
-  };
-
   useEffect(() => {
-    console.log("API_URL in useEffect:", API_URL);
     axios
       .get(API_URL)
       .then((res) => {
-        console.log("API response:", res.data); // Check the response
         const data = Array.isArray(res.data) ? res.data : []; // If not an array, set to empty array
-        console.log("Books set:", data); // Check the data being set
         setBooks(data);
       })
       .catch((err) => {
@@ -41,40 +32,21 @@ const BookList = () => {
       });
   }, []);
 
-  console.log("Books:", books); // Display the value of books
+  // Implementing the search functionality
+  const filteredBooks = books.filter((book) =>
+    book.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-      // Implementing the search functionality
-    const filteredBooks = books.filter(book =>
-        book.title.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+  // Function to handle image click
+  const handleImageClick = (imageSrc) => {
+    setSelectedImage(imageSrc);
+    setIsModalOpen(true); // Open the modal
+  };
 
-//   return (
-//     <>
-//       <div className="header">
-//         <h1>
-//           A room without books is like
-//           <br /> a body without a soul.
-//         </h1>
-//       </div>
-//       <h2>Find Your Book</h2>
-//       <div className="search">
-//         <input type="text" placeholder="Enter your Book Name" />
-//         <button>
-//           <FontAwesomeIcon icon={faMagnifyingGlass} />
-//         </button>
-//       </div>
-//       <div className="book-list">
-//         {books.map((book) => (
-//           <div key={book.id} className="book">
-//             <div>
-
-return (
+  return (
     <>
       <div className="header">
-        <h1>
-          A room without books is like
-          <br /> a body without a soul.
-        </h1>
+        <h1>A room without books is like a body without a soul.</h1>
       </div>
       <h2>Find Your Book</h2>
       <div className="search">
@@ -95,10 +67,15 @@ return (
               <h3>{book.title}</h3>
             </div>
             <div>
-              <img src={book.image_url} alt={book.title} />
+              <img 
+                src={book.image_url} 
+                alt={book.title} 
+                onClick={() => handleImageClick(book.image_url)} // Add click event to image
+                style={{ cursor: "pointer" }} // Pointer cursor
+              />
             </div>
             <div>
-              {favoritesChecker(book.id) ? (
+              {favorites.some((fav) => fav.id === book.id) ? (
                 <button onClick={() => removeFavorites(book.id)}>
                   Remove from Favorites
                 </button>
@@ -111,8 +88,15 @@ return (
           </div>
         ))}
       </div>
+      {/* Image Modal */}
+      <ImageModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        imageSrc={selectedImage} 
+      />
     </>
   );
 };
 
 export default BookList;
+
