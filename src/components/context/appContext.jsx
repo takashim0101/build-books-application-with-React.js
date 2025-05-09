@@ -13,6 +13,7 @@ export const AppProvider = ({ children }) => {
     const addToFavorites = (book) => {
         setFavorites((prevFavorites) => {
             // Spread the current favorites and add the new book.
+            console.log('Current favorites before adding:', prevFavorites);
             return [...prevFavorites, book];
         });
     };

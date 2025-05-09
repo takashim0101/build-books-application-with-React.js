@@ -7,6 +7,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Favorites from './components/Favorites';
 import './App.css';
+import Main from "./components/Main";
+
 
 function App() {
   return (
@@ -17,7 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<BookList />} />
             <Route path="/book/:id" element={<BookDetails />} />
-            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/favorites" element={<Favorites />} />           
           </Routes>
           <Footer />
         </div>

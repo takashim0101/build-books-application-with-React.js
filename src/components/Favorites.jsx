@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react'; // Import useEffect
 import { useAppContext } from './context/appContext.jsx';
 
 const Favorites = () => {
@@ -7,6 +7,11 @@ const Favorites = () => {
 
     console.log('Favorites are', favorites);
   
+    // added useEffect
+    useEffect(() => {
+      console.log('Favorites are', favorites);
+  }, [favorites]); // Output a log every time favorites are updated
+    
     // Function to check if a book is in favorites
     const favoritesChecker = (id) => {
         return favorites.some((book) => book.id === id);
