@@ -24,41 +24,73 @@
     border: 1px solid #ccc; /* Light border */
     border-radius: 1vh; /* Rounded corners */
     margin-right: 1%; /* Space between input and button */
-    font-size: 2vh; /* Adjust font size */
+    font-size: 2.5vh; /* Increased font size */
+    height: 9vh; /* Set height to match button */
   }
   
   .searchButton {
     background-color: #333; /* Dark background for button */
     border: none; /* No border */
-    padding: 2.5% 5%; /* Adjust padding to increase height and decrease width */
+    padding: 2% 5%; /* Adjust padding to increase height and decrease width */
     border-radius: 1vh; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
     display: flex; /* Flexbox for icon alignment */
     align-items: center; /* Center icon vertically */
+    justify-content: center; /* Center content horizontally */
     color: white; /* Set text color to white */
     height: 9vh; /* Increase height */
     width: auto; /* Set width to auto or a specific value if needed */
     min-width: 50px; /* Optional: Set a minimum width */
     transition: transform 0.1s ease; /* Animation for sinking effect */
+    font-size: 2.5vh; /* Increased font size */
   }
-    
+  
   .searchButton:active {
-    transform: translateY(1vh); /* Move down on click */
+    transform: translateY(1.5vh); /* Move down on click */
   }
   
   .icon {
     width: 3vh; /* Width of the icon */
     height: auto; /* Maintain aspect ratio */
-    margin-right: 0.5vw; 
+    margin-right: 2vw; /* Space between icon and text */
   }
   
   .buttonText {
-    font-size: 2vh; 
+    font-size: 3vh; /* Increased font size for button text */
   }
   
   .searchButton:hover {
     background-color: #555; /* Darker shade on hover */
   }
+  
+  /* Media query for mobile styles */
+  @media (max-width: 768px) {
+    .searchContainer {
+      flex-direction: column; /* Stack input and button vertically */
+      align-items: center; /* Center items horizontally */
+    }
+  
+    .searchInput {
+      width: 90%; /* Full width on mobile */
+      margin-bottom: 1%; /* Space between input and button */
+      background-color: white; /* White background for input */
+      height: 9vh; /* Set height to match button */
+      font-size: 2.5vh; /* Increased font size for mobile */
+    }
+  
+    .searchButton {
+      width: 90%; /* Full width on mobile */
+      height: 9vh; /* Set height for button */
+      justify-content: center; /* Center content horizontally */
+      font-size: 2.5vh; /* Increased font size for mobile */
+    }
+  }
+  
+  
+  
+  
+  
+  
   
   
   
