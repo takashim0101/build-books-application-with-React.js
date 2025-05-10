@@ -10,6 +10,7 @@ import Favorites from './components/Favorites';
 import './App.css';
 import ImageModal from './components/ImageModal'; // ImageModalのインポート（必要に応じて）
 
+
 function App() {
   return (
     <AppProvider>
