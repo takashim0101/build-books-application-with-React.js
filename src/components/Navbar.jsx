@@ -12,14 +12,14 @@ const Navbar = ({ onSearch }) => {
 
   return (
     <div className={styles.appContainer}>      
-      <h1>A room without books is like a body without a soul.</h1>
-      <h2>Book Finder</h2>
+      <h1>A room without books is like a body without a soul.</h1> 
       
       <div className={styles.headerImages}>
         <img src="./images/bg1.png" alt="Background 1" />
         <img src="./images/bg2.png" alt="Background 2" />
       </div>
-      
+      <br/>
+      <h2>Book Finder</h2>
       <div className={styles.searchContainer}>        
         <input
           type="text"
@@ -38,13 +38,3 @@ const Navbar = ({ onSearch }) => {
 };
 
 export default Navbar;
-
-
-
-
-
-
-
-
-
-

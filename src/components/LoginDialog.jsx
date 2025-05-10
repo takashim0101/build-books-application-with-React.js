@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './LoginDialog.module.css'; // スタイルを別ファイルに分ける
+import './LoginDialog.module.css'; // Importing styles
 
 const LoginDialog = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState('');
@@ -8,8 +8,8 @@ const LoginDialog = ({ isOpen, onClose }) => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // 簡単なメールアドレスの正規表現
-  const passwordRegex = /^(?=.*[A-Z])(?=.*\d).*$/; // 大文字で始まり数字で終わる正規表現
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex
+  const passwordRegex = /^(?=.*[A-Z])(?=.*\d).*$/; // Password regex
 
   const validateInput = () => {
     setMessage('');
@@ -30,16 +30,16 @@ const LoginDialog = ({ isOpen, onClose }) => {
     }
 
     alert(`Email: ${email}\nPassword is valid! You are authenticated.`);
-    onClose(); // ダイアログを閉じる
+    onClose(); // Close the dialog
   };
 
-  if (!isOpen) return null;
+  if (!isOpen) return null; // Return null if not open
 
   return (
     <div className="modalOverlay" onClick={onClose}>
       <div 
         className="modalContent" 
-        onClick={(e) => e.stopPropagation()} // モーダルのクリックイベントを伝播しないようにする
+        onClick={(e) => e.stopPropagation()} // Prevent click from closing when clicking inside the modal
       >
         <span className="closeButton" onClick={onClose}>&times;</span>
         <h1>SecureAuth Toolkit</h1>
@@ -74,3 +74,5 @@ const LoginDialog = ({ isOpen, onClose }) => {
 };
 
 export default LoginDialog;
+
+

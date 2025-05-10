@@ -85,7 +85,7 @@ button:focus-visible {
 
 .footer {
   width: 100%;
-  height: 10%; /* Changed from vh to % */
+  height: 50%; /* Changed from vh to % */
   background: black;
   color: white;
   display: flex;

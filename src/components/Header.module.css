@@ -1,53 +1,112 @@
 .appContainer {
-    background-color: #f5f5dc; /* Light beige */
-    padding: 20px; /* Add some padding to the container */
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5% 5%; /* Header padding */    
-  }
-  
-  .logoContainer {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  
-  .companyName {
-    font-size: 2.5vh; /* Font size */
-    font-weight: bold;
-    border-radius: 50%; /* Circle style */
-    background-color: lightgray; /* Circle background color */
-    width: 12vh; /* Circle width */
-    height: 12vh; /* Circle height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  
-  .logoImage {
-    width: 60%; /* Logo size */
-    height: auto; /* Maintain aspect ratio */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centering */
-  }
-  
+  background-color: #f5f5dc; /* Light beige */
+  padding: 2vh; /* Add some padding to the container using vh */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh 5%; /* Header padding using vh and % */    
+}
+
+.logoContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.companyName {
+  font-size: 2.5vh; /* Font size */
+  font-weight: bold;
+  border-radius: 50%; /* Circle style */
+  background-color: lightgray; /* Circle background color */
+  width: 12vh; /* Circle width */
+  height: 12vh; /* Circle height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.logoImage {
+  width: 60%; /* Logo size */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.nzFlagContainer {
+  display: flex;
+  align-items: center; /* Center the flag vertically */
+  margin-left: 1.5%; /* Space between the flag and the previous menu item */
+}
+
+.nzFlagImage {
+  width: 5vh; /* Adjust the size of the flag */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.navbar {
+  position: relative; /* For positioning the menu */
+}
+
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 2%; /* Menu item margin using percentage */
+}
+
+/* Hamburger menu styles */
+.hamburger {
+  display: none; /* Default hidden */
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburgerIcon {
+  font-size: 5vh; /* Increased size of the hamburger icon */
+  color: #333; /* Color of the icon */
+}
+
+.bar {
+  height: 0.5vh; /* Height of the bar */
+  width: 25%; /* Width of the bar */
+  background-color: #333; /* Bar color */
+  margin: 1vh 0; /* Space between bars */
+}
+
+/* Media queries for mobile size management */
+@media (max-width: 768px) {
   .navbar ul {
-    display: flex;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    display: none; /* Default hidden */
+    flex-direction: column; /* Stack vertically */
+    position: absolute;
+    top: 10vh; /* Position below the header */
+    left: 0;
+    background-color: white; /* Menu background color */
+    width: 100%; /* Full width */
+    z-index: 1; /* Display above other elements */
   }
-  
-  .navbar li {
-    margin: 0 2%; /* Menu item margin */
+
+  .navbar ul.active {
+    display: flex; /* Show when active */
   }
+
+  .hamburger {
+    display: flex; /* Show hamburger menu */
+  }
+}
+
+
+
+
+
+
+
   
   
   
