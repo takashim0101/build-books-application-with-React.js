@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7); /* フォールバック用の背景色 */
+  background-color: rgba(0, 0, 0, 0.7); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,42 +13,43 @@
 
 .modalContent {
   background: white;
-  padding: 5%; /* パディングを%で設定 */
-  border-radius: 8px;
+  padding: 5%; 
+  border-radius: 8%; 
   position: relative;
-  width: 90%; /* 幅を90%に設定 */
-  height: auto; /* 高さを自動に設定 */
-  max-height: 90vh; /* 最大高さを90%ビューポートに設定 */
-  overflow-y: auto; /* 内容が多い場合にスクロールできるように */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* 影を追加 */
-  transition: transform 0.3s ease; /* スムーズな拡大のためのトランジション */
+  width: 90%; 
+  height: auto; 
+  max-height: 90vh; 
+  overflow-y: auto; 
+  box-shadow: 0 4vh 20vh rgba(0, 0, 0, 0.2); 
+  transition: transform 0.3s ease; 
 }
 
 .closeButton {
   position: absolute;
-  top: 5%; /* 上からの距離を%で設定 */
-  right: 5%; /* 右からの距離を%で設定 */
+  top: 5%; 
+  right: 5%; 
   cursor: pointer;
-  font-size: 4vw; /* フォントサイズをvwで設定 */
-  color: white; /* 文字色を白に設定 */
-  background-color: rgba(0, 0, 0, 0.5); /* 背景を半透明の黒に設定 */
-  border: none; /* ボーダーなし */
-  border-radius: 50%; /* 円形にする */
-  width: 10%; /* 幅を%で設定 */
-  height: 10%; /* 高さを%で設定 */
+  font-size: 4vw;
+  color: white; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  border: none; 
+  border-radius: 50%; 
+  width: 10%; 
+  height: 10%; 
   display: flex;
-  justify-content: center; /* 中央揃え */
-  align-items: center; /* 中央揃え */
+  justify-content: center; 
+  align-items: center; 
 }
 
 .closeButton:hover {
-  background-color: rgba(0, 0, 0, 0.7); /* ホバー時の背景色 */
+  background-color: rgba(0, 0, 0, 0.7); 
 }
 
 .enlargedImage {
-  width: 100%; /* 幅を100%に設定 */
-  height: auto; /* 高さは自動で設定 */
-  max-height: 80vh; /* 最大高さを80%に設定 */
+  width: 100%; 
+  height: auto; 
+  max-height: 80vh; 
 }
+
 
 

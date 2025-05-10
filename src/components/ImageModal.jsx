@@ -1,8 +1,8 @@
-import React from "react"; // Import React library
-import styles from "./ImageModal.module.css"; // Import CSS styles for the modal
+import React from "react"; 
+import styles from "./ImageModal.module.css"; 
 
 const ImageModal = ({ isOpen, onClose, imageSrc }) => {
-  if (!isOpen) return null; // If modal is not open, return null
+  if (!isOpen) return null;
 
   return (
     <div className={styles.modalOverlay} onClick={onClose}>

@@ -1,0 +1,56 @@
+.appContainer {
+    background-color: #f5f5dc; /* Light beige */
+    padding: 20px; /* Add some padding to the container */
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5% 5%; /* Header padding */    
+  }
+  
+  .logoContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .companyName {
+    font-size: 2.5vh; /* Font size */
+    font-weight: bold;
+    border-radius: 50%; /* Circle style */
+    background-color: lightgray; /* Circle background color */
+    width: 12vh; /* Circle width */
+    height: 12vh; /* Circle height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .logoImage {
+    width: 60%; /* Logo size */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centering */
+  }
+  
+  .navbar ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar li {
+    margin: 0 2%; /* Menu item margin */
+  }
+  
+  
+  
+  
+  
+  

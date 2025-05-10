@@ -1,0 +1,64 @@
+.appContainer {
+    background-color: #f0f0f0; /* Light gray background */
+    padding: 5% 0; /* Padding for the container */
+    text-align: center; /* Center align text */
+  }
+  
+  h1 {
+    margin-bottom: 2%; /* Space between heading and search */
+  }
+  
+  h2 {
+    margin-bottom: 3%; /* Space between title and search */
+  }
+  
+  .searchContainer {
+    display: flex; /* Flexbox for input and button */
+    justify-content: center; /* Center the search elements */
+    align-items: center; /* Align items vertically */
+  }
+  
+  .searchInput {
+    width: 40%; /* Width of the search input */
+    padding: 2%; /* Padding inside input */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 1vh; /* Rounded corners */
+    margin-right: 1%; /* Space between input and button */
+    font-size: 2vh; /* Adjust font size */
+  }
+  
+  .searchButton {
+    background-color: #333; /* Dark background for button */
+    border: none; /* No border */
+    padding: 2.5% 5%; /* Adjust padding to increase height and decrease width */
+    border-radius: 1vh; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: flex; /* Flexbox for icon alignment */
+    align-items: center; /* Center icon vertically */
+    color: white; /* Set text color to white */
+    height: 9vh; /* Increase height */
+    width: auto; /* Set width to auto or a specific value if needed */
+    min-width: 50px; /* Optional: Set a minimum width */
+    transition: transform 0.1s ease; /* Animation for sinking effect */
+  }
+    
+  .searchButton:active {
+    transform: translateY(1vh); /* Move down on click */
+  }
+  
+  .icon {
+    width: 3vh; /* Width of the icon */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 0.5vw; 
+  }
+  
+  .buttonText {
+    font-size: 2vh; 
+  }
+  
+  .searchButton:hover {
+    background-color: #555; /* Darker shade on hover */
+  }
+  
+  
+  

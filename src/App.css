@@ -95,6 +95,10 @@ button {
 }
 
 
+.highlight {
+  color: #50C878; /* Emerald green color */
+  font-weight: bold; /* Make the text bold */
+}
 
 
 

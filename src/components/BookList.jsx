@@ -1,98 +1,90 @@
 import React, { useState, useEffect } from "react";
-import { API_URL } from "../API.js";
-import axios from "axios";
-import { useAppContext } from "./context/appContext.jsx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import ImageModal from "./ImageModal"; // Import the ImageModal component
+import { API_URL } from "../API.js"; 
+import axios from "axios"; 
+import { useAppContext } from "./context/appContext.jsx"; 
+import ImageModal from "./ImageModal"; 
+import Navbar from "./Navbar"; 
 
 const BookList = () => {
-  const [books, setBooks] = useState([]); // Initial value is an empty array
-  const [searchTerm, setSearchTerm] = useState(""); // State for search term
-  const context = useAppContext();
-  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
-  const [selectedImage, setSelectedImage] = useState(""); // State for selected image
+  const [books, setBooks] = useState([]); // List of books
+  const [filteredBooks, setFilteredBooks] = useState([]); // Filtered list of books
+  const context = useAppContext(); 
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [selectedImage, setSelectedImage] = useState(""); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(""); 
 
   if (!context) {
     return <div>Error: Context is not available</div>;
   }
 
-  const { favorites, addToFavorites, removeFavorites } = context;
+  const { favorites, addToFavorites, removeFavorites } = context; 
 
+  // Fetch data when the component mounts
   useEffect(() => {
     axios
-      .get(API_URL)
+      .get(API_URL) 
       .then((res) => {
-        const data = Array.isArray(res.data) ? res.data : []; // If not an array, set to empty array
-        setBooks(data);
+        const data = Array.isArray(res.data) ? res.data : [];
+        setBooks(data); 
+        setFilteredBooks(data); // Initialize filtered books
       })
       .catch((err) => {
-        console.error("Error fetching data:", err.message);
-        setBooks([]); // Set to empty array on error
+        console.error("Error fetching data:", err.message); 
+        setError("Error fetching data. Please try again."); 
+        setBooks([]); 
+      })
+      .finally(() => {
+        setLoading(false); 
       });
   }, []);
 
-  // Implementing the search functionality
-  const filteredBooks = books.filter((book) =>
-    book.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  // Function to handle image click
+  // Handle image click
   const handleImageClick = (imageSrc) => {
-    setSelectedImage(imageSrc);
-    setIsModalOpen(true); // Open the modal
+    setSelectedImage(imageSrc); 
+    setIsModalOpen(true); 
   };
 
   return (
     <>
-      <div className="header">
-        <h1>A room without books is like a body without a soul.</h1>
-      </div>
-      <h2>Find Your Book</h2>
-      <div className="search">
-        <input
-          type="text"
-          placeholder="Enter your Book Name"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button>
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </button>
-      </div>
+      <Navbar onSearch={(searchTerm) => {
+        const results = books.filter((book) =>
+          book.title.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredBooks(results); // Update filtered books based on search
+      }} /> {/* Pass search function to Navbar */}
+      
+      {loading && <div>Loading...</div>} 
+      {error && <div className="error">{error}</div>} 
       <div className="book-list">
         {filteredBooks.map((book) => (
           <div key={book.id} className="book">
-            <div>
-              <h3>{book.title}</h3>
-            </div>
-            <div>
-              <img 
-                src={book.image_url} 
-                alt={book.title} 
-                onClick={() => handleImageClick(book.image_url)} // Add click event to image
-                style={{ cursor: "pointer" }} // Pointer cursor
-              />
+            <h3>{book.title}</h3> 
+            <img
+              src={book.image_url}
+              alt={book.title}
+              onClick={() => handleImageClick(book.image_url)} 
+              style={{ cursor: "pointer" }} 
+            />
+            <div className="genre-container">
+              <span className="genres">
+                {book.genres ? book.genres.split(",").join(", ") : "No genres available"}
+              </span>
             </div>
             <div>
               {favorites.some((fav) => fav.id === book.id) ? (
-                <button onClick={() => removeFavorites(book.id)}>
-                  Remove from Favorites
-                </button>
+                <button onClick={() => removeFavorites(book.id)}>Remove from Favorites</button>
               ) : (
-                <button onClick={() => addToFavorites(book)}>
-                  Add to Favorites
-                </button>
+                <button onClick={() => addToFavorites(book)}>Add to Favorites</button>
               )}
             </div>
           </div>
         ))}
       </div>
-      {/* Image Modal */}
-      <ImageModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        imageSrc={selectedImage} 
+      <ImageModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        imageSrc={selectedImage}
       />
     </>
   );
