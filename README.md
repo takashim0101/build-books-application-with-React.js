@@ -1,10 +1,34 @@
+# Amazing Books Application (Frontend)
 
+## Overview
+This project is the frontend of the "Amazing Books Application" built with React. It provides a platform for users to search, browse, and purchase books.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+- User registration and login functionality
+- Search functionality to discover books
+- Detailed view of book information
+- Shopping cart functionality
+- Responsive design
 
-Currently, two official plugins are available:
+## Tech Stack
+- React
+- Redux
+- Axios
+- CSS Modules
+- React Router
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/Amazing-Books-Application-frontend.git
+
+2.Navigate to the project directory:
+cd Amazing-Books-Application-frontend
+
+3.Install dependencies:
+npm install
+
+4.Start the application:
 
 
