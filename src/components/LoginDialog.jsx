@@ -1,78 +1,83 @@
-import React, { useState } from 'react';
-import './LoginDialog.module.css'; // Importing styles
+// src/components/LoginDialog.jsx
+import React, { useState } from "react"; // Import React and useState
+import { loginUser } from "../API"; // Import the loginUser function from API
+import "./LoginDialog.module.css"; // Import styles
 
 const LoginDialog = ({ isOpen, onClose }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+  // State variables to manage input values and messages
+  const [email, setEmail] = useState(""); // For email
+  const [password, setPassword] = useState(""); // For password
+  const [message, setMessage] = useState(""); // For messages
+  const [emailError, setEmailError] = useState(""); // For email error messages
+  const [passwordError, setPasswordError] = useState(""); // For password error messages
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex
-  const passwordRegex = /^(?=.*[A-Z])(?=.*\d).*$/; // Password regex
+  // Regular expression for validating email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const validateInput = () => {
-    setMessage('');
-    setEmailError('');
-    setPasswordError('');
+  // Regular expression for validating password format
+  const passwordRegex = /^(?=.*[A-Z])(?=.*\d).*$/;
 
+  // Function to validate input
+  const validateInput = async () => {
+    setMessage(""); // Reset message
+    setEmailError(""); // Reset email error
+    setPasswordError(""); // Reset password error
+
+    // Check if the email format is valid
     if (!emailRegex.test(email)) {
-      setEmailError('Invalid email format. Please enter a valid email address.');
-      return;
+      setEmailError("Invalid email format. Please enter a valid email address.");
+      return; // Stop if there's an error
     }
 
+    // Check if the password is long enough
     if (password.length < 8) {
-      setPasswordError('Password is too short! It must be at least 8 characters long.');
-      return;
+      setPasswordError("Password is too short! It must be at least 8 characters long.");
+      return; // Stop if there's an error
     } else if (!passwordRegex.test(password)) {
-      setPasswordError('Password must start with an uppercase letter and end with a number.');
-      return;
+      setPasswordError("Password must start with an uppercase letter and contain a number.");
+      return; // Stop if there's an error
     }
 
-    alert(`Email: ${email}\nPassword is valid! You are authenticated.`);
-    onClose(); // Close the dialog
+    // Call the API to log in
+    try {
+      const response = await loginUser(email, password); // Try to log in
+      setMessage(response.message); // Set success message
+      alert("Login successful!"); // Show success alert
+      onClose(); // Close the dialog
+    } catch (error) {
+      console.error(error); // Log error to the console
+      setMessage(error.message); // Set error message
+    }
   };
 
-  if (!isOpen) return null; // Return null if not open
+  // If the dialog is not open, return nothing
+  if (!isOpen) return null;
 
   return (
     <div className="modalOverlay" onClick={onClose}>
-      <div 
-        className="modalContent" 
-        onClick={(e) => e.stopPropagation()} // Prevent click from closing when clicking inside the modal
-      >
-        <span className="closeButton" onClick={onClose}>&times;</span>
-        <h1>SecureAuth Toolkit</h1>
-        <h2>This is email and password validation</h2>
-        <label htmlFor="input-email">Email:</label>
-        <input
-          type="email"
-          id="input-email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <br /><br />
-        <label htmlFor="input-password">Password:</label>
-        <input
-          type="password"
-          id="input-password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <br /><br />
-        <button onClick={validateInput}>Validate</button>        
-        <p>{message}</p>
-        <p style={{ color: 'red' }}>{emailError}</p>
-        <p style={{ color: 'red' }}>{passwordError}</p>
-        <br />
-        <button onClick={onClose}>Close</button>
+      <div className="modalContent" onClick={(e) => e.stopPropagation()}>
+        <span className="closeButton" onClick={onClose}>
+          &times; {/* Close button */}
+        </span>
+        <h1>SecureAuth Toolkit</h1> {/* Title */}
+        <form onSubmit={(e) => {
+          e.preventDefault(); // Prevent form from submitting normally
+          validateInput(); // Call the validation function
+        }}>
+          <label htmlFor="input-email">Email:</label>
+          <input type="email" id="input-email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <br />
+          <label htmlFor="input-password">Password:</label>
+          <input type="password" id="input-password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <br />
+          <button type="submit">Submit</button>
+          <p>{message}</p> {/* Display message */}
+          <p style={{ color: "red" }}>{emailError}</p> {/* Display email error */}
+          <p style={{ color: "red" }}>{passwordError}</p> {/* Display password error */}
+        </form>
       </div>
     </div>
   );
 };
 
-export default LoginDialog;
-
-
+export default LoginDialog; // Export the component

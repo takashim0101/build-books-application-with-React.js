@@ -1,166 +1,172 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; /* Set the default font family */
+  line-height: 1.5; /* Set line height for better readability */
+  font-weight: 400; /* Normal font weight */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: light dark; /* Enable light and dark mode support */
+  color: rgba(255, 255, 255, 0.87); /* Default text color */
+  background-color: #242424; /* Default background color */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none; /* Disable font synthesis */
+  text-rendering: optimizeLegibility; /* Optimize text rendering for legibility */
+  -webkit-font-smoothing: antialiased; /* Smooth fonts for WebKit browsers */
+  -moz-osx-font-smoothing: grayscale; /* Smooth fonts for Firefox on macOS */
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  font-weight: 500; /* Medium font weight for links */
+  color: #646cff; /* Default link color */
+  text-decoration: inherit; /* Inherit text decoration from parent */
 }
+
 a:hover {
-  color: yellowgreen;
+  color: yellowgreen; /* Change link color on hover */
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  margin: 0; /* Remove default margin */
+  display: flex; /* Use flexbox for layout */
+  place-items: center; /* Center items both vertically and horizontally */
+  min-width: 320px; /* Minimum width for the body */
+  min-height: 100vh; /* Minimum height to fill the viewport */
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 3.2em; /* Set font size for h1 */
+  line-height: 1.1; /* Set line height for h1 */
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  border-radius: 8px; /* Rounded corners for buttons */
+  border: 1px solid transparent; /* Transparent border by default */
+  padding: 0.6em 1.2em; /* Padding inside the button */
+  font-size: 1em; /* Set font size for buttons */
+  font-weight: 500; /* Medium font weight for buttons */
+  font-family: inherit; /* Inherit font family from parent */
+  background-color: #1a1a1a; /* Default button background color */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: border-color 0.25s; /* Smooth transition for border color */
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: #646cff; /* Change border color on hover */
 }
+
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px auto -webkit-focus-ring-color; /* Add focus outline for accessibility */
 }
 
+/* Media query for light color scheme */
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #213547; /* Text color for light mode */
+    background-color: #ffffff; /* Background color for light mode */
   }
   a:hover {
-    color: #747bff;
+    color: #747bff; /* Link color on hover in light mode */
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* Button background for light mode */
   }
 }
 
+/* Universal selector to apply box-sizing and reset padding/margin */
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  box-sizing: border-box; /* Use border-box model for all elements */
+  padding: 0; /* Reset default padding */
+  margin: 0; /* Reset default margin */
 }
 
 .navbar {
-  width: 100%;
-  height: 10%; /* Changed from vh to % */
-  background: black;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  width: 100%; /* Full width for the navbar */
+  height: 10%; /* Height set as a percentage */
+  background: black; /* Navbar background color */
+  color: white; /* Navbar text color */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: space-evenly; /* Even spacing between items */
 }
 
 .footer {
-  width: 100%;
-  height: 50%; /* Changed from vh to % */
-  background: black;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%; /* Full width for the footer */
+  height: 50%; /* Height set as a percentage */
+  background: black; /* Footer background color */
+  color: white; /* Footer text color */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
 }
 
 .book-list {
-  min-height: 80%; /* Changed from vh to % */
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Default is 3 columns */
-  justify-items: center;
-  text-align: center;
-  box-sizing: border-box;
+  min-height: 80%; /* Minimum height set as a percentage */
+  width: 100%; /* Full width for the book list */
+  display: grid; /* Use grid layout for book items */
+  grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
+  justify-items: center; /* Center items within grid cells */
+  text-align: center; /* Center text within items */
+  box-sizing: border-box; /* Use border-box model */
 }
 
 .favorites {
-  min-height: 80%; /* Changed from vh to % */
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Default is 3 columns */
-  justify-items: center;
-  text-align: center;
-  box-sizing: border-box;
+  min-height: 80%; /* Minimum height set as a percentage */
+  width: 100%; /* Full width for favorites */
+  display: grid; /* Use grid layout for favorite items */
+  grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
+  justify-items: center; /* Center items within grid cells */
+  text-align: center; /* Center text within items */
+  box-sizing: border-box; /* Use border-box model */
 }
 
 img {
-  width: 300px; /* Set to desired size for larger screens */
-  height: 300px; /* Set to desired size for larger screens */
-  transition: all 0.3s; /* Added transition */
+  width: 300px; /* Set image width for larger screens */
+  height: 300px; /* Set image height for larger screens */
+  transition: all 0.3s; /* Smooth transition for all properties */
 }
 
 img:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Scale image on hover */
 }
 
 .book {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0; /* Restored original margin */
+  text-align: center; /* Center text within book items */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange items in a column */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  margin: 20px 0; /* Margin for spacing around book items */
 }
 
 button {
-  padding: 10px; /* Restored original size */
-  background: black;
-  color: white;
-  width: 100%;
-  border-radius: 5px; /* Restored original size */
+  padding: 10px; /* Padding for buttons */
+  background: black; /* Button background color */
+  color: white; /* Button text color */
+  width: 100%; /* Full width for buttons */
+  border-radius: 5px; /* Rounded corners for buttons */
 }
 
-/* Media Query */
+/* Media Query for responsive design */
 @media (max-width: 768px) {
   .book-list,
   .favorites {
-    grid-template-columns: repeat(3, 1fr); /* Keep three columns on mobile */
-    min-height: 80vh; /* Set min height based on viewport height */
+    grid-template-columns: repeat(3, 1fr); /* Maintain 3 columns on mobile */
+    min-height: 80vh; /* Set minimum height based on viewport height */
   }
 
   img {
-    width: 300px; /* Set to fixed width for consistency */
-    height: 300px; /* Set to fixed height for consistency */
+    width: 300px; /* Fixed width for images on mobile */
+    height: 300px; /* Fixed height for images on mobile */
   }
 
   .book {
-    margin: 5%; /* Changed to % */
+    margin: 5%; /* Margin for book items on mobile */
   }
 
   button {
-    padding: 2%; /* Changed to % */
+    padding: 2%; /* Padding adjustment for buttons on mobile */
   }
 }
+
 
 
 

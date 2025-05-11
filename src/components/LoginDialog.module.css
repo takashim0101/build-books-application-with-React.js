@@ -1,75 +1,50 @@
-.modalOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Ensure it appears above all other elements */
-}
-
-.modalContent {
-    background-color: white;
-    padding: 2vh; /* Responsive padding */
-    border-radius: 2vh; /* Rounded corners */
-    width: 90%; /* Full width on mobile */
-    max-width: 70%; /* Increased max width for larger screens */
-    box-shadow: 0 4vh 8vh rgba(0, 0, 0, 0.2);
-}
-
-.closeButton {
-    cursor: pointer;
-    font-size: 2.5vh; /* Font size */
-    position: absolute;
-    top: 2vh; /* Position adjustment */
-    right: 2vh; /* Position adjustment */
-}
-
-.flagImage {
-    margin-bottom: 2vh; /* Space between the flag and the login button */
-    width: 100%; /* Adjust as needed */
-    max-width: 50%; /* Adjust max width for the flag */
-}
-
+/* Styles for email and password input fields */
 input[type="email"], input[type="password"] {
-    height: 8vh; /* Set height */
-    font-size: 2.5vh; /* Set font size */
-    padding: 1.5%; /* Padding */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 2vh; /* Rounded corners */
-    width: 100%; /* Full width */
-    box-sizing: border-box; /* Include padding and border in total width */
+    height: 8vh; /* Set height for input fields */
+    font-size: 2.5vh; /* Set font size for input text */
+    padding: 2%; /* Adjust padding for better spacing inside the input */
+    border: 1px solid #ccc; /* Light gray border for input fields */
+    border-radius: 2vh; /* Rounded corners for input fields */
+    width: 100%; /* Set width to 100% to fill the container */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    margin-bottom: 2vh; /* Space between input fields and the button */
 }
 
+/* Styles for buttons */
 button {
-    width: 100%; /* Full width for the button */
-    min-width: 30%; /* Minimum width set in % */
-    padding: 2vh; /* Increased padding for better appearance */
-    font-size: 2vh; /* Reduced font size for better visibility */
-    border: none; /* No border */
-    background-color: #333; /* Button background color */
-    color: white; /* Button text color */
-    border-radius: 2vh; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth background transition */
+    height: 8vh; /* Set height for the button */
+    font-size: 3vh; /* Set font size for button text */
+    border: none; /* Remove default border */
+    background-color: #333; /* Dark background color for the button */
+    color: white; /* White text color for the button */
+    border-radius: 2vh; /* Rounded corners for the button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color change */
+    text-align: center; /* Center text inside the button */
+    margin-top: 2vh; /* Space above the button */
+    width: 100%; /* Set width to 100% to fill the container */
 }
 
-/* Button styles for hamburger menu */
+/* Responsive design styles for buttons on smaller screens */
 @media (max-width: 768px) {
     button {
-        text-align: left; /* Align text to the left */
-        padding-left: 2vw; /* Additional left padding */
-        padding-top: 3vh; /* Increase top padding */
-        padding-bottom: 3vh; /* Increase bottom padding */
+        text-align: center; /* Center text on smaller screens */
+        padding-left: 0; /* Reset left padding for consistency */
+        padding-right: 0; /* Reset right padding for consistency */
     }
 }
 
+/* Button hover state */
 button:hover {
-    background-color: #555; /* Darker shade on hover */
+    background-color: #555; /* Change to a darker shade on hover */
 }
+
+
+
+
+
+
+
 
 
 

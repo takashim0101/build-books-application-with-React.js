@@ -1,109 +1,108 @@
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  box-sizing: border-box; /* Set box-sizing to border-box for all elements to include padding and border in the element's total width and height */
+  padding: 0; /* Reset default padding for all elements */
+  margin: 0; /* Reset default margin for all elements */
 }
 
 .navbar {
-  width: 100%;
-  height: 10%; /* Changed from vh to % */
-  background: black;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  width: 100%; /* Full width for the navigation bar */
+  height: 10%; /* Height set as a percentage of the parent container */
+  background: black; /* Navbar background color */
+  color: white; /* Navbar text color */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically within the navbar */
+  justify-content: space-evenly; /* Even spacing between items in the navbar */
 }
 
 .footer {
-  width: 100%;
-  height: 90%; /* Changed from vh to % */
-  background: black;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%; /* Full width for the footer */
+  height: 90%; /* Height set as a percentage of the parent container */
+  background: black; /* Footer background color */
+  color: white; /* Footer text color */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically within the footer */
+  justify-content: center; /* Center items horizontally within the footer */
 }
 
 .book-list {
-  min-height: 80%; /* Changed from vh to % */
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Default is 3 columns */
-  justify-items: center;
-  text-align: center;
-  box-sizing: border-box;
+  min-height: 80%; /* Minimum height set as a percentage of the parent container */
+  width: 100%; /* Full width for the book list */
+  display: grid; /* Use grid layout for book items */
+  grid-template-columns: repeat(3, 1fr); /* Default to 3 columns for book items */
+  justify-items: center; /* Center items within grid cells */
+  text-align: center; /* Center text within items */
+  box-sizing: border-box; /* Use border-box model */
 }
 
 .favorites {
-  min-height: 80%; /* Changed from vh to % */
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Default is 3 columns */
-  justify-items: center;
-  text-align: center;
-  box-sizing: border-box;
+  min-height: 80%; /* Minimum height set as a percentage of the parent container */
+  width: 100%; /* Full width for favorites */
+  display: grid; /* Use grid layout for favorite items */
+  grid-template-columns: repeat(3, 1fr); /* Default to 3 columns for favorite items */
+  justify-items: center; /* Center items within grid cells */
+  text-align: center; /* Center text within items */
+  box-sizing: border-box; /* Use border-box model */
 }
 
 .book img {
-  width: 310px; /* Restored to original size */
-  height: 500px; /* Restored to original size */
-  transition: all 0.3s; /* Added transition */
-  object-fit: cover; /* This will crop the image to fill the dimensions without stretching */
+  width: 310px; /* Set image width for book items */
+  height: 500px; /* Set image height for book items */
+  transition: all 0.3s; /* Smooth transition for all properties on hover */
+  object-fit: cover; /* Crop the image to fill the dimensions without stretching */
 }
 
 img:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Scale the image slightly on hover for a zoom effect */
 }
 
 .book {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0; /* Restored original margin */
+  text-align: center; /* Center text within book items */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange items in a column */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  margin: 20px 0; /* Margin for spacing around book items */
 }
 
 button {
-  padding: 10px; /* Restored original size */
-  background: black;
-  color: white;
-  width: 100%;
-  border-radius: 5px; /* Restored original size */
+  padding: 10px; /* Padding for buttons */
+  background: black; /* Button background color */
+  color: white; /* Button text color */
+  width: 100%; /* Full width for buttons */
+  border-radius: 5px; /* Rounded corners for buttons */
 }
 
-/* Media Query */
+/* Media Query for responsive design */
 @media (max-width: 768px) {
   .book-list,
   .favorites {
-    grid-template-columns: 1fr; /* Change to one column */
-    min-height: 80vh; /* Set min height based on viewport height */
+    grid-template-columns: 1fr; /* Change to one column on smaller screens */
+    min-height: 80vh; /* Set minimum height based on viewport height */
   }
 
   img {
-    width: 100%; /* Expand image to full width */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%; /* Expand image to full width on smaller screens */
+    height: auto; /* Maintain aspect ratio for images */
   }
 
   .book {
-    margin: 5%; /* Changed to % */
+    margin: 5%; /* Margin adjustment for book items on smaller screens */
   }
 
   button {
-    padding: 2%; /* Changed to % */
+    padding: 2%; /* Padding adjustment for buttons on smaller screens */
   }
 }
 
-
 .highlight {
-  color: #50C878; /* Emerald green color */
-  font-weight: bold; /* Make the text bold */
+  color: #50c878; /* Emerald green color for highlighted text */
+  font-weight: bold; /* Make the highlighted text bold */
 }
 
-
-
-
-
-
-
-
+.centered-message {
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  height: 100vh; /* Full viewport height for the centered message */
+  text-align: center; /* Center text alignment */
+}

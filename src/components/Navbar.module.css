@@ -1,114 +1,103 @@
 .appContainer {
-    background-image: url('./images/wood-texture.jpg'); /* Path to your wood texture image */
-    background-size: contain; /* Scale the image to fit within the container */
-    background-position: center top; /* Start the image from the top center */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    padding-top: 5vh; /* Space at the top */
-    min-height: 60vh; /* Ensure it takes up full height */
-    text-align: center; /* Center align text */
-    position: relative; /* Ensure positioning context for child elements */
+  background-image: url("./images/wood-texture.jpg"); /* Path to your wood texture image */
+  background-size: contain; /* Scale the image to fit within the container */
+  background-position: center top; /* Start the image from the top center */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  padding-top: 5vh; /* Space at the top */
+  min-height: 60vh; /* Ensure it takes up full height */
+  text-align: center; /* Center align text */
+  position: relative; /* Ensure positioning context for child elements */
 }
 
-h1, h2 {
-    margin: 0; /* Remove default margins */
+h1,
+h2 {
+  margin: 0; /* Remove default margins */
 }
 
 .searchContainer {
-    margin-top: 2vh; /* Reduce space between images and search box */
-    display: flex; /* Flexbox for input and button */
-    justify-content: center; /* Center the search elements */
-    align-items: center; /* Align items vertically */
+  margin-top: 2vh; /* Reduce space between images and search box */
+  display: flex; /* Flexbox for input and button */
+  justify-content: center; /* Center the search elements */
+  align-items: center; /* Align items vertically */
 }
 
 /* Mobile styles */
 @media (max-width: 768px) {
-    .searchContainer {
-        flex-direction: column; /* Stack input and button vertically on mobile */
-        align-items: center; /* Center items horizontally */
-    }
+  .searchContainer {
+    flex-direction: column; /* Stack input and button vertically on mobile */
+    align-items: center; /* Center items horizontally */
+  }
 }
 
 .headerImages {
-    display: flex; /* Use flexbox for side-by-side layout */
-    justify-content: center; /* Center the images */
-    margin-top: 2vh; /* Reduce space above the images */
+  display: flex; /* Use flexbox for side-by-side layout */
+  justify-content: center; /* Center the images */
+  margin-top: 2vh; /* Reduce space above the images */
 }
 
 .headerImages img {
-    width: 25%; /* Set width for images */
-    margin: 0 2vw; /* Space between images */
+  width: 25%; /* Set width for images */
+  margin: 0 2vw; /* Space between images */
 }
 
 .searchInput {
-    width: 40%; /* Width of the search input */
-    padding: 2%; /* Padding inside input */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 1vh; /* Rounded corners */
-    margin-right: 1%; /* Space between input and button */
-    font-size: 2.5vh; /* Increased font size */
-    height: 9vh; /* Set height to match button */
+  width: 40%; /* Width of the search input */
+  padding: 2%; /* Padding inside input */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 1vh; /* Rounded corners */
+  margin-right: 1%; /* Space between input and button */
+  font-size: 2.5vh; /* Increased font size */
+  height: 9vh; /* Set height to match button */
 }
 
 .searchButton {
-    background-color: #333; /* Dark background for button */
-    border: none; /* No border */
-    padding: 2% 5%; /* Adjust padding */
-    border-radius: 1vh; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    display: flex; /* Flexbox for icon alignment */
-    align-items: center; /* Center icon vertically */
-    justify-content: center; /* Center content horizontally */
-    color: white; /* Set text color to white */
-    height: 9vh; /* Increase height */
-    width: auto; /* Set width to auto */
-    min-width: 50px; /* Optional: Set a minimum width */
-    transition: transform 0.1s ease; /* Animation for sinking effect */
+  background-color: #333; /* Dark background for button */
+  border: none; /* No border */
+  padding: 2% 5%; /* Adjust padding */
+  border-radius: 1vh; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: flex; /* Flexbox for icon alignment */
+  align-items: center; /* Center icon vertically */
+  justify-content: center; /* Center content horizontally */
+  color: white; /* Set text color to white */
+  height: 10vh; /* Increase height to 10vh */
+  width: auto; /* Set width to auto */
+  min-width: 50px; /* Optional: Set a minimum width */
+  transition: transform 0.1s ease; /* Animation for sinking effect */
 }
 
 .searchButton:active {
-    transform: translateY(1.5vh); /* Move down on click */
+  transform: translateY(1.5vh); /* Move down on click */
 }
 
 .icon {
-    width: 3vh; /* Width of the icon */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 2vw; /* Space between icon and text */
+  width: 3vh; /* Width of the icon */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 2vw; /* Space between icon and text */
 }
 
 .buttonText {
-    font-size: 3vh; /* Increased font size for button text */
+  font-size: 3vh; /* Increased font size for button text */
 }
 
 .searchButton:hover {
-    background-color: #555; /* Darker shade on hover */
+  background-color: #555; /* Darker shade on hover */
 }
 
 /* Mobile styles for the search button */
 @media (max-width: 768px) {
-    .searchInput {
-        width: 90%; /* Full width on mobile */
-        margin-bottom: 1vh; /* Space between input and button */
-        background-color: white; /* White background for input */
-        height: 9vh; /* Set height to match button */
-        font-size: 2.5vh; /* Increased font size for mobile */
-    }
+  .searchInput {
+    width: 90%; /* Full width on mobile */
+    margin-bottom: 1vh; /* Space between input and button */
+    background-color: white; /* White background for input */
+    height: 9vh; /* Set height to match button */
+    font-size: 2.5vh; /* Increased font size for mobile */
+  }
 
-    .searchButton {
-        width: 90%; /* Full width on mobile */
-        height: 9vh; /* Set height for button */
-        justify-content: center; /* Center content horizontally */
-        font-size: 2.5vh; /* Increased font size for mobile */
-    }
+  .searchButton {
+    width: 90%; /* Full width on mobile */
+    height: 9vh; /* Set height for button */
+    justify-content: center; /* Center content horizontally */
+    font-size: 2.5vh; /* Increased font size for mobile */
+  }
 }
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
